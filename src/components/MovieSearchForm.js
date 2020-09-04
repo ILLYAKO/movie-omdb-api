@@ -7,6 +7,7 @@ class Form extends Component {
       movieName: "",
     };
   }
+  
   myChangeHandler = (event) => {
     this.setState({ movieName: event.target.value });
   };

@@ -10,6 +10,10 @@ export class MovieResult extends Component {
     };
   }
 
+  clickHandler = (movie) => {
+    this.props.movieNominationshandler(movie);
+  };
+
   omdbUrl = () => {
     return this.state.basicUrl
       .concat(this.state.apikey)
@@ -17,31 +21,48 @@ export class MovieResult extends Component {
       .concat(this.props.movieName);
   };
 
-  scaping = () => {
-    fetch(this.omdbUrl())
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          console.log("result.Search", result.Search);
-          //this.setState({ movieList: result.Search });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error,
-          });
-        }
-      );
-  };
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.movieName !== prevProps.movieName) {
+      // this.fetchData(this.props.userID);
+      fetch(this.omdbUrl(), [])
+        .then((res) => res.json())
+        .then(
+          (result) => {
+            this.setState({ movieList: result.Search });
+            console.log("movieList: ", this.state.movieList);
+          },
+          // Note: it's important to handle errors here
+          // instead of a catch() block so that we don't swallow
+          // exceptions from actual bugs in components.
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error,
+            });
+          }
+        );
+    }
+  }
 
   render() {
     return (
-      <div className="Result">
+      <div className="column result">
         <h1>Result for {this.props.movieName}</h1>
-        {this.props.movieName && this.scaping()}
+        <div className="result list">
+          {this.state.movieList.map((movie, index) => (
+            <li key={index}>
+              {movie.Title} ({movie.Year}){" "}
+              <button
+                onClick={() => {
+                  this.clickHandler(movie);
+                }}
+              >
+                Nominate
+              </button>
+            </li>
+          ))}
+        </div>
       </div>
     );
   }
