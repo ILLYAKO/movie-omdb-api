@@ -7,7 +7,7 @@ class Form extends Component {
       movieName: "",
     };
   }
-  
+
   myChangeHandler = (event) => {
     this.setState({ movieName: event.target.value });
   };
@@ -21,10 +21,16 @@ class Form extends Component {
     return (
       <form onSubmit={this.mySubmitHandler} style={{ background: "red" }}>
         <label>
-          Movie Title
+          Movie Title: 
           <input type="text" name="movieName" onChange={this.myChangeHandler} />
         </label>
         <input type="submit" value="Submit" />
+        {this.props.serverResponse.Response === "False" && (
+          <div>
+            <p>OMDB Response: {this.props.serverResponse.Error}</p>
+            <p>Try againe!</p>
+          </div>
+        )}
       </form>
     );
   }
