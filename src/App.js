@@ -43,23 +43,27 @@ class App extends Component {
     // }
   };
 
-  movieRemoveNominhandler = (index) => {
+  movieRemoveNominhandler = (imdbIDNumber) => {
     let arrayM = [...this.state.movieNominants];
-    console.log("index", index);
-    if (index !== -1) {
-      arrayM.splice(index, 1);
+    console.log("index", imdbIDNumber);
+    if (imdbIDNumber !== -1) {
+      arrayM.splice(imdbIDNumber, 1);
       this.setState({ movieNominants: arrayM });
       this.setState({ isFiveNominants: false });
     }
     ////////////////
-    let arrayB = [...this.state.disabledButtons];
-    console.log("indexB", index);
-    if (index !== -1) {
-      arrayB.splice(index, 1);
-      this.setState({ disabledButtons: arrayB });
-    }
-
-
+    // let arrayB = [...this.state.disabledButtons];
+    // let index = arrayB.indexOf(imdbIDNumber)
+    // console.log("indexB", index);
+    // if (index !== -1) {
+    //   arrayB.splice(index, 1);
+    //   this.setState({ disabledButtons: arrayB });
+    // }
+    this.setState({
+      disabledButtons: this.state.disabledButtons.filter((item) => {
+        return item !== imdbIDNumber;
+      }),
+    });
   };
 
   render() {
@@ -78,7 +82,10 @@ class App extends Component {
             disabledButtons={this.state.disabledButtons}
             serverResponse={this.state.serverResponse}
           />
-          {console.log("App.state.disabledButtons: ", this.state.disabledButtons)}
+          {console.log(
+            "App.state.disabledButtons: ",
+            this.state.disabledButtons
+          )}
           <MovieNominations
             movieNominants={this.state.movieNominants}
             isFiveNominants={this.state.isFiveNominants}
