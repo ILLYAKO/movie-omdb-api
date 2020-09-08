@@ -1,7 +1,5 @@
-Online Demo:[movieSearch](https://github.com/ILLYAKO/shoppies-omdb-api/tree/master/public/MovieSearch.gif)
-Online Demo:![movieSearch1](./public/MovieSearch.gif)
-
-
+Online Demo:
+![movieSearch1](./public/MovieSearch.gif)
 
 ## Available Scripts
 
