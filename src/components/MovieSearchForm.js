@@ -19,12 +19,12 @@ class Form extends Component {
 
   render() {
     return (
-      <form onSubmit={this.mySubmitHandler} style={{ background: "red" }}>
+      <form onSubmit={this.mySubmitHandler} >
         <label>
           Movie Title: 
-          <input type="text" name="movieName" onChange={this.myChangeHandler} />
         </label>
-        <input type="submit" value="Submit" />
+        <input type="text" name="movieName" onChange={this.myChangeHandler} placeholder="Movie name..." />
+        <input type="submit" value="Search" />
         {this.props.serverResponse.Response === "False" && (
           <div>
             <p>OMDB Response: {this.props.serverResponse.Error}</p>

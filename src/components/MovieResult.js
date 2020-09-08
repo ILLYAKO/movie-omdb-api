@@ -9,8 +9,7 @@ class MovieResult extends Component {
       currentPage: 0,
       totalPages: 0,
       resultPerPage: 10,
-      disabledButtons:[],
-      
+      disabledButtons: [],
       apikey: "7535d36f",
       basicUrl: "http://www.omdbapi.com/?apikey=",
     };
@@ -24,12 +23,7 @@ class MovieResult extends Component {
 
   clickHandler = (movie) => {
     this.props.movieNominationshandler(movie);
-    this.setState({disabledButtons:this.props.disabledButtons})  
-    // if (this.state.disabledButtons.length < 5) {
-    //   this.setState({
-    //     disabledButtons: [...this.props.disabledButtons, movie.imdbID],//////
-    //   });
-    // }
+    this.setState({ disabledButtons: this.props.disabledButtons });
   };
 
   omdbUrl = () => {
@@ -70,33 +64,39 @@ class MovieResult extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.movieName !== prevProps.movieName) {
-      this.fetchReqest();               
+      this.fetchReqest();
     }
-    
   }
 
   render() {
     return (
       <div className="column result">
-        <h1>
-          Result for {this.props.movieName}{" "}
-          {this.props.serverResponse.totalResults}
-        </h1>
+        {this.props.movieName ? (
+          <h2>Results for "{this.props.movieName}"</h2>
+        ) : (
+          <h2>Result</h2>
+        )}
         <div className="result list">
-        {console.log("MovieResult.state.disabledButtons: ", this.state.disabledButtons)}
-          {this.state.movieList.map((movie, index) => (
-            <li key={index}>
-              {movie.Title} ({movie.Year}) {movie.imdbID}
-              <button
-                onClick={() => {
-                  this.clickHandler(movie);
-                }}
-                disabled={this.props.disabledButtons.includes(movie.imdbID)} /////
-              >
-                Nominate
-              </button>
-            </li>
-          ))}
+          <ul>
+            {this.state.movieList.map((movie, index) => (
+              <li key={index}>
+               <div className="movie-img" style={{backgroundImage:`url(${movie.Poster})`}}>
+                  {/* <img src={movie.Poster} alt={movie.Title}></img> */}
+                </div>
+                <p className="movie-dscr">
+                  {movie.Title} ({movie.Year})
+                </p>
+                <button
+                  onClick={() => {
+                    this.clickHandler(movie);
+                  }}
+                  disabled={this.props.disabledButtons.includes(movie.imdbID)}
+                >
+                  Nominate
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
         {this.state.totalPages !== 0 && (
           <Pagination

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import MovieSearchForm from "./components/MovieSearchForm";
 import MovieResult from "./components/MovieResult";
-import "./App.css";
+//import "./App.css";
 import MovieNominations from "./components/MovieNominations";
 
 class App extends Component {
@@ -27,7 +27,7 @@ class App extends Component {
   };
 
   movieNominationshandler = (movie) => {
-    if (this.state.movieNominants.length < 5) {
+    if (this.state.movieNominants.length <=4) {
       this.setState({
         movieNominants: [...this.state.movieNominants, movie],
         disabledButtons: [...this.state.disabledButtons, movie.imdbID],
@@ -35,30 +35,15 @@ class App extends Component {
     } else {
       this.setState({ isFiveNominants: true });
     }
-
-    // if (this.state.disabledButtons.length < 5) {
-    //   this.setState({
-    //     disabledButtons: [...this.props.disabledButtons, movie.imdbID],//////
-    //   });
-    // }
   };
 
   movieRemoveNominhandler = (imdbIDNumber) => {
     let arrayM = [...this.state.movieNominants];
-    console.log("index", imdbIDNumber);
     if (imdbIDNumber !== -1) {
       arrayM.splice(imdbIDNumber, 1);
       this.setState({ movieNominants: arrayM });
       this.setState({ isFiveNominants: false });
     }
-    ////////////////
-    // let arrayB = [...this.state.disabledButtons];
-    // let index = arrayB.indexOf(imdbIDNumber)
-    // console.log("indexB", index);
-    // if (index !== -1) {
-    //   arrayB.splice(index, 1);
-    //   this.setState({ disabledButtons: arrayB });
-    // }
     this.setState({
       disabledButtons: this.state.disabledButtons.filter((item) => {
         return item !== imdbIDNumber;
@@ -74,7 +59,7 @@ class App extends Component {
           onSearcMovieName={this.movieNamehandler}
           serverResponse={this.state.serverResponse}
         />
-        <div className="row Result Nomination">
+        <div className="row result nomination">
           <MovieResult
             serverResponseHandler={this.serverResponseHandler}
             movieName={this.state.movieName}
@@ -82,10 +67,6 @@ class App extends Component {
             disabledButtons={this.state.disabledButtons}
             serverResponse={this.state.serverResponse}
           />
-          {console.log(
-            "App.state.disabledButtons: ",
-            this.state.disabledButtons
-          )}
           <MovieNominations
             movieNominants={this.state.movieNominants}
             isFiveNominants={this.state.isFiveNominants}
