@@ -1,7 +1,7 @@
 Online Demo:[movieSearch](https://github.com/ILLYAKO/shoppies-omdb-api/tree/master/public/MovieSearch.gif)
-Online Demo:[movieSearch1](./public/MovieSearch.gif)
+Online Demo:![movieSearch1](./public/MovieSearch.gif)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
