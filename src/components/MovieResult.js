@@ -11,7 +11,7 @@ class MovieResult extends Component {
       resultPerPage: 10,
       disabledButtons: [],
       apikey: "7535d36f",
-      basicUrl: "http://www.omdbapi.com/?apikey=",
+      basicUrl: "https://www.omdbapi.com/?apikey=",
     };
   }
 
