@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import MovieSearchForm from "./components/MovieSearchForm";
 import MovieResult from "./components/MovieResult";
-//import "./App.css";
 import MovieNominations from "./components/MovieNominations";
 
 class App extends Component {
@@ -26,15 +25,19 @@ class App extends Component {
     this.setState({ movieName: name });
   };
 
-  movieNominationshandler = (movie) => {
-    if (this.state.movieNominants.length <=4) {
-      this.setState({
+  movieNominationshandler = async (movie) => {
+    if (this.state.movieNominants.length <= 4) {
+      await this.setState({
         movieNominants: [...this.state.movieNominants, movie],
         disabledButtons: [...this.state.disabledButtons, movie.imdbID],
       });
     } else {
       this.setState({ isFiveNominants: true });
     }
+
+   this.state.movieNominants.length <= 4
+      ? this.setState({ isFiveNominants: false })
+      : this.setState({ isFiveNominants: true })
   };
 
   movieRemoveNominhandler = (imdbIDNumber) => {

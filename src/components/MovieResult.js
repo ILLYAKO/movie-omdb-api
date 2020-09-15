@@ -81,7 +81,6 @@ class MovieResult extends Component {
             {this.state.movieList.map((movie, index) => (
               <li key={index}>
                <div className="movie-img" style={{backgroundImage:`url(${movie.Poster})`}}>
-                  {/* <img src={movie.Poster} alt={movie.Title}></img> */}
                 </div>
                 <p className="movie-dscr">
                   {movie.Title} ({movie.Year})
