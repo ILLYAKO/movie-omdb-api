@@ -17,12 +17,12 @@ class App extends Component {
     isFiveNominants: false,
   };
 
-  serverResponseHandler = (serverResponse) => {
-    this.setState({ serverResponse: serverResponse });
+  serverResponseHandler = async (serverResponse) => {
+    await this.setState({ serverResponse });
   };
 
-  movieNamehandler = (name) => {
-    this.setState({ movieName: name });
+  movieNamehandler = async (name) => {
+    await this.setState({ movieName: name });
   };
 
   movieNominationshandler = async (movie) => {
@@ -35,15 +35,15 @@ class App extends Component {
       this.setState({ isFiveNominants: true });
     }
 
-   this.state.movieNominants.length <= 4
+    this.state.movieNominants.length <= 4
       ? this.setState({ isFiveNominants: false })
-      : this.setState({ isFiveNominants: true })
+      : this.setState({ isFiveNominants: true });
   };
 
   movieRemoveNominhandler = (imdbIDNumber) => {
     let arrayM = [...this.state.movieNominants];
     if (imdbIDNumber !== -1) {
-      arrayM.splice(imdbIDNumber, 1);
+      arrayM = arrayM.filter((element) => element.imdbID !== imdbIDNumber);
       this.setState({ movieNominants: arrayM });
       this.setState({ isFiveNominants: false });
     }

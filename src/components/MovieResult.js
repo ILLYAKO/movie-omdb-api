@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Pagination from "./Pagination";
+import Pagination from "./pagination/Pagination";
 
 class MovieResult extends Component {
   constructor(props) {
@@ -80,10 +80,12 @@ class MovieResult extends Component {
           <ul>
             {this.state.movieList.map((movie, index) => (
               <li key={index}>
-               <div className="movie-img" style={{backgroundImage:`url(${movie.Poster})`}}>
-                </div>
+                <div
+                  className="movie-img"
+                  style={{ backgroundImage: `url(${movie.Poster})` }}
+                ></div>
                 <p className="movie-dscr">
-                  {movie.Title} ({movie.Year})
+                  {movie.Title} {movie.Year}
                 </p>
                 <button
                   onClick={() => {
