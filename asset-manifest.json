@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/shoppies-omdb-api/static/css/main.732f3694.chunk.css",
-    "main.js": "/shoppies-omdb-api/static/js/main.4899d452.chunk.js",
-    "main.js.map": "/shoppies-omdb-api/static/js/main.4899d452.chunk.js.map",
+    "main.css": "/shoppies-omdb-api/static/css/main.a018347a.chunk.css",
+    "main.js": "/shoppies-omdb-api/static/js/main.6b2cd739.chunk.js",
+    "main.js.map": "/shoppies-omdb-api/static/js/main.6b2cd739.chunk.js.map",
     "runtime-main.js": "/shoppies-omdb-api/static/js/runtime-main.be94effe.js",
     "runtime-main.js.map": "/shoppies-omdb-api/static/js/runtime-main.be94effe.js.map",
-    "static/js/2.159cb6f7.chunk.js": "/shoppies-omdb-api/static/js/2.159cb6f7.chunk.js",
-    "static/js/2.159cb6f7.chunk.js.map": "/shoppies-omdb-api/static/js/2.159cb6f7.chunk.js.map",
+    "static/js/2.e3cfb8af.chunk.js": "/shoppies-omdb-api/static/js/2.e3cfb8af.chunk.js",
+    "static/js/2.e3cfb8af.chunk.js.map": "/shoppies-omdb-api/static/js/2.e3cfb8af.chunk.js.map",
     "index.html": "/shoppies-omdb-api/index.html",
-    "precache-manifest.3591c2fd5d10ce15303ff46ef0d555b8.js": "/shoppies-omdb-api/precache-manifest.3591c2fd5d10ce15303ff46ef0d555b8.js",
+    "precache-manifest.212abff68ac14a19edfce676b1f7be82.js": "/shoppies-omdb-api/precache-manifest.212abff68ac14a19edfce676b1f7be82.js",
     "service-worker.js": "/shoppies-omdb-api/service-worker.js",
-    "static/css/main.732f3694.chunk.css.map": "/shoppies-omdb-api/static/css/main.732f3694.chunk.css.map",
-    "static/js/2.159cb6f7.chunk.js.LICENSE.txt": "/shoppies-omdb-api/static/js/2.159cb6f7.chunk.js.LICENSE.txt"
+    "static/css/main.a018347a.chunk.css.map": "/shoppies-omdb-api/static/css/main.a018347a.chunk.css.map",
+    "static/js/2.e3cfb8af.chunk.js.LICENSE.txt": "/shoppies-omdb-api/static/js/2.e3cfb8af.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.be94effe.js",
-    "static/js/2.159cb6f7.chunk.js",
-    "static/css/main.732f3694.chunk.css",
-    "static/js/main.4899d452.chunk.js"
+    "static/js/2.e3cfb8af.chunk.js",
+    "static/css/main.a018347a.chunk.css",
+    "static/js/main.6b2cd739.chunk.js"
   ]
 }
