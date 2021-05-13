@@ -1,36 +1,41 @@
 import React, { Component } from "react";
 
 class Form extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      movieName: "",
-    };
-  }
-
-  myChangeHandler = (event) => {
-    this.setState({ movieName: event.target.value });
+  state = {
+    movieName: "",
+    isInputCorrect: false,
   };
 
-  mySubmitHandler = (event) => {
+  formChangeHandler = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  formSubmitHandler = (event) => {
     event.preventDefault();
     this.props.onSearcMovieName(this.state.movieName);
   };
 
+  componentDidMount() {
+    this.setState({ isInputCorrect: true });
+  }
+
   render() {
     return (
-      <form onSubmit={this.mySubmitHandler} >
-        <label>
-          Movie Title: 
-        </label>
-        <input type="text" name="movieName" onChange={this.myChangeHandler} placeholder="Movie name..." />
+      <form onSubmit={this.formSubmitHandler}>
+        <label>Movie Title:</label>
+        <input
+          type="text"
+          name="movieName"
+          onChange={this.formChangeHandler}
+          placeholder="Movie name..."
+        />
         <input type="submit" value="Search" />
-        {this.props.serverResponse.Response === "False" && (
+        {this.props.serverResponse.Response === "False" ||
+        !this.state.isInputCorrect ? (
           <div>
-            <p>OMDB Response: {this.props.serverResponse.Error}</p>
-            <p>Try againe!</p>
+            <p>OMDB Response: {this.props.serverResponse.Error} Try againe!</p>
           </div>
-        )}
+        ) : null}
       </form>
     );
   }

@@ -62,6 +62,10 @@ class MovieResult extends Component {
       );
   };
 
+  componentDidMount(prevProps) {
+    this.fetchReqest();
+  }
+
   componentDidUpdate(prevProps) {
     if (this.props.movieName !== prevProps.movieName) {
       this.fetchReqest();
@@ -70,12 +74,8 @@ class MovieResult extends Component {
 
   render() {
     return (
-      <div className="column result">
-        {this.props.movieName ? (
-          <h2>Results for "{this.props.movieName}"</h2>
-        ) : (
-          <h2>Result</h2>
-        )}
+      <div className="drrr column result">
+        <h2>Results for "{this.props.movieName}"</h2>
         <div className="result list">
           <ul>
             {this.state.movieList.map((movie, index) => (
