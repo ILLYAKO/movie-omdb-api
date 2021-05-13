@@ -1,17 +1,24 @@
 * {
   box-sizing: border-box;
-
 }
 ::selection {
   color: #000000;
   background: #7ec567;
 }
 body {
-  font-family: sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
+  background-image: url("./assets/popcorn.jpg");
+  background-position: bottom;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #f6f7f1;
 }
-.App h1, .App h2, .App h3 {
+.App h1,
+.App h2,
+.App h3 {
   text-align: center;
 }
 
@@ -28,6 +35,7 @@ body {
   min-height: 150px;
   border: 1px solid #d9d9d9;
   margin: 10px;
+  border-radius: 5px;
 }
 .result.nomination {
   background: #f2f2f2;
@@ -57,7 +65,7 @@ label {
   margin: 1%;
 }
 .movie-img {
-  width: 250px;
+  width: 143px;
   height: 250px;
   justify-content: center;
   align-items: center;
@@ -65,20 +73,24 @@ label {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-
-  background-color: #F2F2F2;
-  
+  background-color: #f2f2f2;
+  border: 5px solid white;
+  box-shadow: 0px 16px 18px -7px #808181;
 }
 p.movie-dscr {
   max-width: 70%;
   text-align: center;
 }
 button {
-  padding: 5px 10px;
+  padding: 15px 20px;
   margin-left: 10px;
-  background-color: #0099ff5b;
+  background-color: #f2f2f2;
+  border: 1px solid #d7d7d7;
+  border-radius: 50px;
+  box-shadow: 0px 10px 14px -7px #808181;
+  cursor: pointer;
 }
-ul{
+ul {
   padding: 0;
 }
 li {
@@ -89,7 +101,7 @@ li {
   padding: 0 0 10px 0;
   border-bottom: 1px #bcbcbc dashed;
 }
-li:last-child{
+li:last-child {
   border-bottom: none;
 }
 
@@ -103,9 +115,18 @@ li:last-child{
   border: #747373 1px solid;
   margin-bottom: 40px;
 }
+/* .drrr:not(:empty)::before {
+    content: "Nominations";
+    width: 100%;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #7ec567;
+} */
 @media only screen and (max-width: 1400px) {
   .movie-img {
-    width: 200px;
+    width: 143px;
     height: 200px;
   }
   p.movie-dscr {
@@ -124,7 +145,9 @@ li:last-child{
   }
   .result.nomination {
     margin: 10px 0;
-}
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
 @media only screen and (max-width: 460px) {
   .column {
@@ -137,5 +160,11 @@ li:last-child{
   p.movie-dscr {
     max-width: 80%;
     text-align: center;
-}
+  }
+  .column .result {
+    order: 2;
+  }
+  .column .nomination {
+    order: 1;
+  }
 }

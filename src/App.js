@@ -11,14 +11,28 @@ class App extends Component {
       Search: [],
       totalResults: "",
     },
-    movieName: "",
+    movieName: null,
     movieNominants: [],
     disabledButtons: [],
     isFiveNominants: false,
+    isServerResposeTrue: "",
+  };
+
+  omdbUrl = () => {
+    return this.state.basicUrl
+      .concat(this.state.apikey)
+      .concat("&type=movie&s=")
+      .concat(this.state.movieName)
+      .concat("&page=")
+      .concat(this.state.currentPage + 1);
   };
 
   serverResponseHandler = async (serverResponse) => {
     await this.setState({ serverResponse });
+    await this.setState({
+      isServerResposeTrue: this.state.serverResponse.Response,
+    });
+  
   };
 
   movieNamehandler = async (name) => {
@@ -34,7 +48,6 @@ class App extends Component {
     } else {
       this.setState({ isFiveNominants: true });
     }
-
     this.state.movieNominants.length <= 4
       ? this.setState({ isFiveNominants: false })
       : this.setState({ isFiveNominants: true });
@@ -62,20 +75,22 @@ class App extends Component {
           onSearcMovieName={this.movieNamehandler}
           serverResponse={this.state.serverResponse}
         />
-        <div className="row result nomination">
-          <MovieResult
-            serverResponseHandler={this.serverResponseHandler}
-            movieName={this.state.movieName}
-            movieNominationshandler={this.movieNominationshandler}
-            disabledButtons={this.state.disabledButtons}
-            serverResponse={this.state.serverResponse}
-          />
-          <MovieNominations
-            movieNominants={this.state.movieNominants}
-            isFiveNominants={this.state.isFiveNominants}
-            movieRemoveNominhandler={this.movieRemoveNominhandler}
-          />
-        </div>
+        {this.state.movieName || this.state.movieNominants.length ? (
+          <div className="row result nomination">
+            <MovieResult
+              movieName={this.state.movieName}
+              serverResponse={this.state.serverResponse}
+              serverResponseHandler={this.serverResponseHandler}
+              movieNominationshandler={this.movieNominationshandler}
+              disabledButtons={this.state.disabledButtons}
+            />
+            <MovieNominations
+              movieNominants={this.state.movieNominants}
+              isFiveNominants={this.state.isFiveNominants}
+              movieRemoveNominhandler={this.movieRemoveNominhandler}
+            />
+          </div>
+        ) : null}
       </div>
     );
   }
