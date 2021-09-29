@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/shoppies-omdb-api/static/css/main.745d5c15.chunk.css",
-    "main.js": "/shoppies-omdb-api/static/js/main.149d16ac.chunk.js",
-    "main.js.map": "/shoppies-omdb-api/static/js/main.149d16ac.chunk.js.map",
+    "main.js": "/shoppies-omdb-api/static/js/main.d980faa4.chunk.js",
+    "main.js.map": "/shoppies-omdb-api/static/js/main.d980faa4.chunk.js.map",
     "runtime-main.js": "/shoppies-omdb-api/static/js/runtime-main.be94effe.js",
     "runtime-main.js.map": "/shoppies-omdb-api/static/js/runtime-main.be94effe.js.map",
     "static/js/2.58da3ef6.chunk.js": "/shoppies-omdb-api/static/js/2.58da3ef6.chunk.js",
     "static/js/2.58da3ef6.chunk.js.map": "/shoppies-omdb-api/static/js/2.58da3ef6.chunk.js.map",
     "index.html": "/shoppies-omdb-api/index.html",
-    "precache-manifest.33ca9f9c7d5f964a400a2a9219df5504.js": "/shoppies-omdb-api/precache-manifest.33ca9f9c7d5f964a400a2a9219df5504.js",
+    "precache-manifest.d66538d5eda0fee0340d3c9fae893681.js": "/shoppies-omdb-api/precache-manifest.d66538d5eda0fee0340d3c9fae893681.js",
     "service-worker.js": "/shoppies-omdb-api/service-worker.js",
     "static/css/main.745d5c15.chunk.css.map": "/shoppies-omdb-api/static/css/main.745d5c15.chunk.css.map",
     "static/js/2.58da3ef6.chunk.js.LICENSE.txt": "/shoppies-omdb-api/static/js/2.58da3ef6.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.be94effe.js",
     "static/js/2.58da3ef6.chunk.js",
     "static/css/main.745d5c15.chunk.css",
-    "static/js/main.149d16ac.chunk.js"
+    "static/js/main.d980faa4.chunk.js"
   ]
 }
