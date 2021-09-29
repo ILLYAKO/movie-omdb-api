@@ -70,7 +70,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>The Shoppies</h1>
+        <h1>Movie Catalog</h1>
         <MovieSearchForm
           onSearcMovieName={this.movieNamehandler}
           serverResponse={this.state.serverResponse}
